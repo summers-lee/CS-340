@@ -12,12 +12,12 @@ class AnimalShelter(object):
         # database, the animals collection, and the aac user. 
         # Connection Variables 
         #
-        USER = 'aacuser' 
-        PASS = '1234baby' 
-        HOST = 'localhost' 
-        PORT = 27017 
-        DB = 'aac' 
-        COL = 'animals' 
+        USER = os.environ.get('MONGO_USER')
+        PASS = os.environ.get('MONGO_PASS')
+        HOST = os.environ.get('MONGO_HOST', 'localhost')
+        PORT = int(os.environ.get('MONGO_PORT', 27017))
+        DB = os.environ.get('MONGO_DB', 'aac')
+        COL = os.environ.get('MONGO_COL', 'animals') 
         # 
         # Initialize Connection 
         # 
